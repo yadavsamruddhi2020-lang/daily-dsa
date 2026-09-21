@@ -1,0 +1,17 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+    def max_nodes(self,root):
+        if root is None:
+            return 0
+        left=self.max_nodes(root.left)
+        right=self.max_nodes(root.right)
+        return max(root.data, left, right)
+
+# create nodes
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+print("Maximum node value in the binary tree:", root.max_nodes(root))
